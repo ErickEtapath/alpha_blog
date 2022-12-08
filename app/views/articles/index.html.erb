@@ -21,7 +21,7 @@
                 <tbody class="bg-white">
                     <% @articles.each do |article|%>
                     <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= article.title%></td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= article.title %><br>  by <%= article.user.username%></td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= article.description%></td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= link_to 'Show', article_path(article)%></td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"><%= link_to 'Edit', edit_article_path(article)%></td>
