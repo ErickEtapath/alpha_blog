@@ -2,14 +2,15 @@
 <h1 class="text-3xl font-bold text-center">Showing users list</h1>
     <div class= "py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+        <%= will_paginate @articles, class: "flickr_pagination my-4" %>
             <table class = "min-w-full">
                 <thead>
                     <tr>
                         <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Title
+                            Username
                         </th>
                         <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Description
+                            Email
                         </th>
                         <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Articles
@@ -35,6 +36,7 @@
             <br>
         </div>
     </div>
+    <%= will_paginate @articles, class: "flickr_pagination my-4" %>
     <button class=" mx-auto my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><%= link_to 'Create New User', new_user_path %></button>
     <button class=" mx-auto my-2 bg-white-500 border-blue-200 hover:bg-blue-200 text-blue-500 font-bold py-2 px-4 rounded"><%= link_to 'Home', root_path %></button>
 </div>
