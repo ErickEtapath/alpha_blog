@@ -1,8 +1,12 @@
+<div class= "w-full bg-red-200 rounded-lg text-red-800 shadow dark:border sm:max-w-md pl-6 dark:bg-gray-800 dark:border-gray-700 ">
 <% if obj.errors.any? %>
-    <h2>Errors:</h2>
+
+    <h2 class= "font-bold pt-6 ">Errors:</h2>
     <ul>
         <% obj.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
         <% end %>
     </ul>
+    <br>
 <% end %>
+</div>

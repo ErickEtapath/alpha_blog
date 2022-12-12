@@ -1,15 +1,16 @@
 <%= render 'shared/error', obj: @article%>
 
-<%= form_with(model: @article, local: true)  do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit%>
-    </p>
-<% end %>
+<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <%= form_with(model: @article, local: true)  do |f| %>
+            <%= f.label :title, class: "block mb-2 text-sm font-small text-gray-900 dark:text-white" %>
+            <%= f.text_field :title, class: "mb-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %><br>
+            <%= f.label :description, class: "block mb-2 text-sm font-small text-gray-900 dark:text-white" %>
+            <%= f.text_area :description, class: "mb-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %><br>
+            <div class="flex flex-col items-center">
+            <br>
+                <%= f.submit(@article.new_record? ? "Create Article" : "Update Article", class: " bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded")%>
+            </div>
+        <% end %>
+    </div>
+</div>
