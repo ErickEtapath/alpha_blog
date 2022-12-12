@@ -8,19 +8,20 @@
         <%= form_with(model: @user, local: true)  do |f| %>
             
             <p>
-                <%= f.label :username, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br>
+                <%= f.label :username, class: "block mb-2 text-sm font-small text-gray-900 dark:text-white" %><br>
                 <%= f.text_field :username, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "johndoester"%>
             </p>
             <p>
-                <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br>
+                <%= f.label :email, class: "block mb-2 text-sm font-small text-gray-900 dark:text-white" %><br>
                 <%= f.text_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "john@doe.com" %>
             </p>
             <p>
-                <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"  %><br>
+                <%= f.label :password, class: "block mb-2 text-sm font-small text-gray-900 dark:text-white"  %><br>
                 <%= f.text_field :password, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "*********"  %>
             </p>
-            
+            <div class = " center">
             <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded")%>
+            </div>
         <% end %>
     </div>
 </div>

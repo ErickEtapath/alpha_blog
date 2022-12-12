@@ -1,0 +1,35 @@
+<div class="flex flex-col mt-8">
+    <div class= "py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+            <table class = "min-w-full">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Title
+                        </th>
+                        <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Description
+                        </th>
+                        <th class="px-6 py-3 text-xs font-small leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50" colspan = "3">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody class="bg-white">
+                    <% @articles.each do |article|%>
+                    <tr>
+                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= article.title %><br>  by <%= article.user.username%></td>
+                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= article.description%></td>
+                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Show', article_path(article)%></td>
+                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Edit', edit_article_path(article)%></td>
+                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Delete', article_path(article), data: {turbo_confirm: "Are you sure?", turbo_method: :delete } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><%= link_to 'Create New Article', new_article_path %></button>
+</div>
