@@ -1,7 +1,9 @@
 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-    <h1 class=" mx-auto h-8 font-semibold text-gray-900 dark:text-white"><%= @user.username %></h1>
-    <h2 class=" h-8 mx-auto font-small text-blue-900"><%= link_to 'Edit Profile', edit_user_path(@user)%></h2>
-  
+    <h1 class=" mx-auto h-8 font-bold text-gray-900 dark:text-white"><%= @user.username %></h1>
+    <% if logged_in? && @user == current_user %>
+        <h2 class=" h-8 mx-auto font-small font-semibold text-blue-900"><%= link_to 'Edit Profile', edit_user_path(@user)%></h2>
+        <h2 class=" h-8 mx-auto font-small font-semibold text-red-800"><%= link_to 'Delete Profile', user_path(@user), data: {turbo_confirm: "Are you sure?", turbo_method: :delete }%></h2>
+    <% end %>
     <br>
     <%= gravitar_for @user, size: 200 %>
     <h1 class="h-8 mx-auto">Articles</h1>

@@ -10,8 +10,12 @@
         <div class="w-64 ml-8"><%= @article.description %></div>
         <br>
         <div class="flex flex-row items-center mx-8">
+        <% if logged_in? && (@article.user == current_user || current_user.admin?)  %>
             <%= link_to 'Edit', edit_article_path(@article), class: " bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-8 mx-auto rounded"%> 
             <%= link_to 'Delete', article_path(@article), data: {turbo_confirm: "Are you sure?", turbo_method: :delete }, class: " bg-red-500 hover:bg-red-700 text-white mb-8 mx-auto font-bold py-2 px-4 rounded" %> 
+        <% else %>
+            <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"></td>
+        <% end %>    
             <%= link_to 'Author', user_path(@article.user), class: " bg-green-500 hover:bg-green-700 text-white mb-8 font-bold py-2 px-4 rounded mx-auto" %>
             <%= link_to 'Articles', articles_path, class: " bg-yellow-500 hover:bg-yellow-700 text-white mb-8 font-bold py-2 px-4 rounded mx-auto" %>
         </div>

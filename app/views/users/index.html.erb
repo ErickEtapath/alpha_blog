@@ -27,8 +27,19 @@
                         <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to user.username, user %></td>
                         <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= user.email %></td>
                         <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= pluralize(user.articles.count, "article") %></td>
-                        <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Edit', edit_user_path(user) %></td>
-
+                        <% if logged_in? %>
+                            <% if user == current_user %>
+                                <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Edit', edit_user_path(user) %></td>
+                            <% else %>
+                                <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"></td>
+                            <% end %>
+                            <% if current_user.admin? %>
+                                 <td class="text-red-500 px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"><%= link_to 'Delete', user_path(user), data: {turbo_confirm: "Are you sure?", turbo_method: :delete } %></td>
+                            <% end %>
+                        <% else %>
+                            <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"></td>
+                            <td class="px-6 py-4 text-xs font-small whitespace-no-wrap border-b border-gray-200"></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

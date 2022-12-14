@@ -7,4 +7,5 @@ module ApplicationHelper
        gravitar_url = "https://www.gravitar.com/avatar/#{hash}?s=#{size}"
        image_tag(gravitar_url, alt: user.username)
     end
+
 end
