@@ -1,0 +1,20 @@
+<%= render 'shared/error', obj: @category %>
+
+<div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-6 space-y-5 md:space-y-6 sm:p-8"> 
+        <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <%= "Create Category"%>
+        </h1>    
+        <%= form_with(model: @category, local: true)  do |f| %>
+
+        <%= f.label :name,"Category Name", class: "block mb-2 text-center text-sm font-semibold font-small text-gray-900 dark:text-white" %>
+        <%= f.text_field :name, class: "mb-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "ex. Sports, Travel, etc"%>
+
+        <div class="flex flex-col items-center">
+            <br>
+            <%= f.submit class: " bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%>
+            <%= link_to 'Cancel', root_path, class: "h-8 mt-4 mx-auto font-small font-semibold text-blue-900"%>
+        </div>
+        <% end %>
+    </div>
+</div>
